@@ -11,8 +11,13 @@ dotenv.config();
 //mongodb connection
 connectDB();
 
+//cors err
+const cors = require("cors");
 //rest obejct
 const app = express();
+
+// Use CORS middleware
+app.use(cors());
 
 //middlewares
 app.use(express.json());
