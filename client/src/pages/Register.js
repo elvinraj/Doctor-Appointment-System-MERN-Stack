@@ -14,7 +14,21 @@ const Register = () => {
       dispatch(showLoading());
       const res = await axios.post(
         "http://localhost:8080/api/v1/user/register",
-        values
+        values,
+        {
+          headers: [
+            // { "X-localization": localStorage.getItem("lan") },
+            { "Access-Control-Allow-Origin": "*" },
+            {
+              "Access-Control-Allow-Headers":
+                "Origin, X-Requested-With, Content-Type, Accept ",
+            },
+            {
+              "Access-Control-Allow-Methods": "POST, GET, PUT, OPTIONS, DELETE",
+            },
+            { "Access-Control-Max-Age": 3600 },
+          ],
+        }
       );
       dispatch(hideLoading());
       if (res.data.success) {
