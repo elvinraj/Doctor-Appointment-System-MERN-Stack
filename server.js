@@ -25,7 +25,7 @@ app.use(
   })
 );
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 //middlewares
 app.use(express.json());
