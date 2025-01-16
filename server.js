@@ -17,15 +17,13 @@ const cors = require("cors");
 const app = express();
 
 // Use CORS middleware
-app.use(
-  cors({
-    origin: "https://doctor-appointment-system-mern-stack.onrender.com", //your front-end URL
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: "*", // Allows all origins
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allows only GET and POST methods
+  allowedHeaders: ["Content-Type", "Access-Control-Allow-Origin"], // Allows only specific headers
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 //middlewares
 app.use(express.json());
